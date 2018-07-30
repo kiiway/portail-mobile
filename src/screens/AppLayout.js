@@ -6,12 +6,14 @@ import PortailApi from '../services/Portail'
 import { colors } from '../styles/variables'
 import styles from '../styles/'
 
+// Screens
 import MainLayout from './MainLayout'
+import SettingsScreen from './Settings/';
+
 // DEBUG
 const show = (text) => (<View style={ styles.container.center }><Text style={ styles.text.h0 }>{ text }</Text></View>)
 const ProfileScreen = () => show('Profile')
 const LoginScreen = () => show('Login')
-const SettingsScreen = () => show('Settings')
 
 class CustomDrawerContentComponent extends React.Component {
 	render() {
