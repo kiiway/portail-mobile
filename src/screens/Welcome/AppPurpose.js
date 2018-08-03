@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import List from '../../components/List';
+import I18n from '../../i18n/i18n';
 
 
 import styles from '../../styles'
@@ -27,13 +28,13 @@ const PurposeTabs = createMaterialTopTabNavigator({
 	Members: {
 		screen: () => (<List data={ forMembersData } />),
 		navigationOptions: ({ nav }) => ({
-			title: 'Membre UTC'
+			title: I18n.t('utcMember')
 		})
 	},
 	Interested: {
 		screen: () => (<List data={ forInterestedData } />),
 		navigationOptions: ({ nav }) => ({
-			title: 'Intéressé'
+			title: I18n.t('interested')
 		})
 	}
 }, {
