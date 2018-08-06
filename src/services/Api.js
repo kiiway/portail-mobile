@@ -22,14 +22,14 @@ export default class Api {
 
         for (var query in queries) {
             if (queries.hasOwnProperty(query))
-                str.push(encodeURIComponent(query) + "=" + encodeURIComponent(queries[query]))
+                str.push(encodeURIComponent(query) + '=' + encodeURIComponent(queries[query]))
         }
 
-        return str.join("&")
+        return str.join('&')
     }
 
     urlWithQueries(url, queries) {
-        if (queries === undefined || queries.length === 0 || queries == "")
+        if (queries === undefined || queries.length === 0 || queries == '')
             return url
 	else
         return url + '?' + this.serialize(queries)

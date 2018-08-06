@@ -10,16 +10,16 @@ import HeaderView from '../../components/HeaderView';
 
 
 const forMembersData = [
-	{ icon: "news",		text: _('purpose.members.news') },
-	{ icon: "map",		text: _('purpose.members.map') },
-	{ icon: "bell",		text: _('purpose.members.alerts') },
-	{ icon: "calendar",	text: _('purpose.members.calendar') },
+	{ icon: 'news',		text: _('purpose.members.news') },
+	{ icon: 'map',		text: _('purpose.members.map') },
+	{ icon: 'bell',		text: _('purpose.members.alerts') },
+	{ icon: 'calendar',	text: _('purpose.members.calendar') },
 ]
 const forInterestedData = [
-	{ icon: "news",		text: _('purpose.interested.news') },
-	{ icon: "map",		text: _('purpose.interested.map') },
-	{ icon: "bell",		text: _('purpose.interested.alerts') },
-	{ icon: "calendar",	text: _('purpose.interested.calendar') },
+	{ icon: 'news',		text: _('purpose.interested.news') },
+	{ icon: 'map',		text: _('purpose.interested.map') },
+	{ icon: 'bell',		text: _('purpose.interested.alerts') },
+	{ icon: 'calendar',	text: _('purpose.interested.calendar') },
 ]
 
 

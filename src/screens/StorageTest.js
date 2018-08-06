@@ -5,18 +5,18 @@ import styles from '../styles'
 import { colors } from '../styles/variables';
 import Storage from '../services/Storage';
 
-const key = "test.storage"
+const key = 'test.storage'
 
 export default class StorageTestScreen extends React.Component {
 	state = {
 		security: false,
-		log: ""
+		log: ''
 	}
 
 	// ========== Helpers ==========
 
 	toggleSecurity = (checked) => {
-		console.log("Security :", checked ? "ON" : "OFF")
+		console.log('Security :', checked ? 'ON' : 'OFF')
 		this.setState(prevState => ({ ...prevState, security: checked }))
 		return checked;
 	}
@@ -32,7 +32,7 @@ export default class StorageTestScreen extends React.Component {
 	// ========== Getter & Setters ==========
 
 	getter = async () => {
-		console.log("Getter started", this.state.security ? "SECURE" : "NOT SECURE")
+		console.log('Getter started', this.state.security ? 'SECURE' : 'NOT SECURE')
 		
 		let promise = this.state.security ? Storage.getSensitiveData(key) : Storage.getItem(key)
 		promise.then(data => this.log(data))
@@ -40,17 +40,17 @@ export default class StorageTestScreen extends React.Component {
 	}
 
 	setter = async (i) => {
-		console.log("Setter "+i+" started", this.state.security ? "SECURE" : "NOT SECURE")
+		console.log('Setter '+i+' started', this.state.security ? 'SECURE' : 'NOT SECURE')
 		let data;
 		switch (i) {
 			case 1:
-				data = "abc";
+				data = 'abc';
 				break;
 			case 2:
 				data = 3.2575;
 				break;
 			case 3:
-				data = ["azd", 4, 4.5];
+				data = ['azd', 4, 4.5];
 				break;
 			case 4:
 				data = {a: 1, b: 3};
@@ -61,8 +61,8 @@ export default class StorageTestScreen extends React.Component {
 		}
 
 		let promise = this.state.security ? Storage.setSensitiveData(key, data) : Storage.setItem(key, data)
-		promise.then(() => console.log("Data "+i+" set"))
-			.catch(err => console.warn("Error setting data "+i+" : "+err))
+		promise.then(() => console.log('Data '+i+' set'))
+			.catch(err => console.warn('Error setting data '+i+' : '+err))
 	}
 
 	render() {

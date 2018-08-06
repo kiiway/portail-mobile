@@ -10,7 +10,7 @@ export const containers = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		backgroundColor: colors.white,
-		width: "100%"
+		width: '100%',
 	},
 	center: {
 		flex: 1,
@@ -20,8 +20,8 @@ export const containers = StyleSheet.create({
 	},
 	padded: {
 		paddingHorizontal: spaces.md,
-		paddingVertical: spaces.sm
-	}
+		paddingVertical: spaces.sm,
+	},
 })
 
 // Paddings
@@ -32,7 +32,7 @@ export const padding = {
 	pt: createStyleFromList(spaces, 'paddingTop'),
 	pb: createStyleFromList(spaces, 'paddingBottom'),
 	pl: createStyleFromList(spaces, 'paddingLeft'),
-	pr: createStyleFromList(spaces, 'paddingRight')
+	pr: createStyleFromList(spaces, 'paddingRight'),
 };
 
 // Margins

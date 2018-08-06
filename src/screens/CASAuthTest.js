@@ -12,10 +12,10 @@ export default class CASAuthTestScreen extends React.Component {
 		this.cas = new CASAuth();
 	}
 	state = {
-		log: "",
-		login: "",
-		password: "",
-		service : ""
+		log: '',
+		login: '',
+		password: '',
+		service : '',
 	}
 
 	log = (data, error = false) => {
@@ -28,19 +28,19 @@ export default class CASAuthTestScreen extends React.Component {
 	}
 
 log_in = (login, password) => {
-	console.log("login : "+login+", password : "+password);
+	console.log('login : '+login+', password : '+password);
 	
 	
 	
 	promise = this.cas.login(login, password);
 	promise.then(([text, status, url]) => {
-				this.log(text +" "+status+" "+url);
-				//this.log(this.cas.isConnected() ? "connected" : "not connected");
+				this.log(text +' '+status+' '+url);
+				//this.log(this.cas.isConnected() ? 'connected' : 'not connected');
 				
 				
 	}
 	).catch( ([text, status, url]) => {
-		this.log(text + " "+status+" "+url, true);
+		this.log(text + ' '+status+' '+url, true);
 	});
 	
 }
@@ -48,13 +48,13 @@ log_in = (login, password) => {
 get_service(service) {
 	promise = this.cas.getService(service);
 	promise.then(([text, status, url]) => {
-				this.log(text +" "+status+" "+url);
-				//this.log(this.cas.isConnected() ? "connected" : "not connected");
+				this.log(text +' '+status+' '+url);
+				//this.log(this.cas.isConnected() ? 'connected' : 'not connected');
 				
 				
 	}
 	).catch( ([text, status, url]) => {
-		this.log(text + " "+status+" "+url, true);
+		this.log(text + ' '+status+' '+url, true);
 	});
 
 }
@@ -65,18 +65,18 @@ get_service(service) {
 				<Text>State : { this.state.log }</Text>
 				<TextInput
 				  style={{height: 40}}
-				  placeholder="login"
+				  placeholder='login'
 				onChangeText={(text) => this.setState(prevState => ({ ...prevState, login: text }))}
 				/>
 				<TextInput
 				  style={{height: 40}}
-				  placeholder="password"
+				  placeholder='password'
 				onChangeText={(text) => this.setState(prevState => ({ ...prevState, password: text }))}
 				/>
 				<Button onPress={ () => {this.log_in(this.state.login, this.state.password); } } title="Log in" />
 				<TextInput
 				  style={{height: 40}}
-				  placeholder="service"
+				  placeholder='service'
 				onChangeText={(text) => this.setState(prevState => ({ ...prevState, service: text }))}
 				/>
 				<Button onPress={ () => {this.get_service(this.state.service); } } title="get service" />

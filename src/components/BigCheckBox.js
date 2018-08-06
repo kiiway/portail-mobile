@@ -9,7 +9,7 @@ import styles from '../styles'
 export default class BigCheckBox extends React.Component {
 	render() {
 		return (
-			<TouchableHighlight onPress={this.onPressButton} underlayColor={"#fff0"}>
+			<TouchableHighlight onPress={this.onPressButton} underlayColor={'#fff0'}>
 				<View style={ styles.bigButton }>
 					<CheckBox
 						checked={ this.props.checked }

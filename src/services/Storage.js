@@ -1,31 +1,31 @@
-import { AsyncStorage } from "react-native";
-import { SecureStore } from "expo";
+import { AsyncStorage } from 'react-native';
+import { SecureStore } from 'expo';
 
 class Storage {
 
 	// ========== Normal Storage ==========
 
 	getItem = async (key) => {
-		if (!key)	throw "Clé non définie !";
+		if (!key)	throw 'Clé non définie !';
 
 		try {
 			const data = await AsyncStorage.getItem(key);
 			return this.parseData(data);
 		} catch (err) {
-			throw "Impossible de récupérer les données"
+			throw 'Impossible de récupérer les données'
 		}
 	}
 
 	setItem = async (key, value) => {
-		if (!key)	throw "Clé non définie !";
-		if (!value)	throw "Valeur non définie !";
+		if (!key)	throw 'Clé non définie !';
+		if (!value)	throw 'Valeur non définie !';
 
 		const data = await this.stringifyData(value)
 		return AsyncStorage.setItem(key, data);
 	}
 
 	removeItem = async (key) => {
-		if (!key)	throw "Clé non définie !";
+		if (!key)	throw 'Clé non définie !';
 
 		return AsyncStorage.removeItem(key);
 	}
@@ -34,32 +34,32 @@ class Storage {
 	// ========== Encrypted Storage ==========
 
 	getSensitiveData = async (key) => {
-		if (!key)	throw "Clé non définie !";
+		if (!key)	throw 'Clé non définie !';
 		if (!this.checkSensitiveKey(key))
-			throw "La clé ne doit contenir que des charactères alphanumeric et ._-";
+			throw 'La clé ne doit contenir que des caractères alphanumériques et ._-';
 
 		try {
 			const data = await SecureStore.getItemAsync(key);
 			return this.parseData(data, true);
 		} catch (err) {
-			throw "Impossible de récupérer les données"
+			throw 'Impossible de récupérer les données'
 		}
 	}
 
 	setSensitiveData = async (key, value) => {
-		if (!key)	throw "Clé non définie !";
-		if (!value)	throw "Valeur non définie !";
+		if (!key)	throw 'Clé non définie !';
+		if (!value)	throw 'Valeur non définie !';
 		if (!this.checkSensitiveKey(key))
-			throw "La clé ne doit contenir que des charactères alphanumeric et ._-";
+			throw 'La clé ne doit contenir que des caractères alphanumériques et ._-';
 
 		const data = await this.stringifyData(value, true)
 		return SecureStore.setItemAsync(key, data);
 	}
 	
 	removeSensitiveData = async (key) => {
-		if (!key)	throw "Clé non définie !";
+		if (!key)	throw 'Clé non définie !';
 		if (!this.checkSensitiveKey(key))
-			throw "La clé ne doit contenir que des charactères alphanumeric et ._-";
+			throw 'La clé ne doit contenir que des caractères alphanumériques et ._-';
 
 		return SecureStore.deleteItemAsync(key);
 	}
@@ -70,8 +70,8 @@ class Storage {
 		try {
 			return JSON.stringify(data);
 		} catch (error) {
-			console.log("error : ", error)
-			throw "Impossible de convertir les données en string."
+			console.log('error : ', error)
+			throw 'Impossible de convertir les données en string.'
 		}
 	}
 
@@ -79,7 +79,7 @@ class Storage {
 		try {
 			return JSON.parse(data)
 		} catch (error) {
-			throw  "Impossible de parser les données récupérées."
+			throw 'Impossible de parser les données récupérées.'
 		}
 	}
 

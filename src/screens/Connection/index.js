@@ -87,8 +87,8 @@ export default class ConnectionScreen extends React.Component {
 						placeHolder="Email / Login CAS"
 						value={ this.state.emailOrLogin }
 						onChangeText={(text) => this.setState(() => { return { emailOrLogin: text } })}
-						keyboardType="email-address"
-						autoCapitalize="none"
+						keyboardType='email-address'
+						autoCapitalize='none'
 						autoCorrect={ false }
 					/>
 					<TextInput style={ styles.bigButton }
@@ -96,7 +96,7 @@ export default class ConnectionScreen extends React.Component {
 						placeHolder="Mot de passe"
 						value={ this.state.password }
 						onChangeText={(text) => this.setState(() => { return { password: text } })}
-						autoCapitalize="none"
+						autoCapitalize='none'
 						autoCorrect={ false }
 						secureTextEntry={ true }
 					/>

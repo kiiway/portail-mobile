@@ -2,7 +2,7 @@ import Api from './Api'
 
 export default class CASAuth extends Api {
 
-	static CAS_TGT_URL = "https://cas.utc.fr/cas/v1/tickets/";
+	static CAS_TGT_URL = 'https://cas.utc.fr/cas/v1/tickets/';
 
 	static HEADER_FORM_URLENCODED = {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -10,7 +10,7 @@ export default class CASAuth extends Api {
 
     constructor(url = CASAuth.CAS_TGT_URL){
 	super(url);
-	this.tgt = "";
+	this.tgt = '';
     }
 
 call (request, method, queries, body, headers, validStatus) {
@@ -30,7 +30,7 @@ call (request, method, queries, body, headers, validStatus) {
 				else {
 					response.text().then( (text) => { reject([text, response.status, response.url]); }); 
 				}
-			}).catch( (e) => {reject([e.message, 523, ""]);} );
+			}).catch( (e) => {reject([e.message, 523, '']);} );
 	});
         
 }
@@ -38,16 +38,16 @@ call (request, method, queries, body, headers, validStatus) {
 
 
 isConnected() {
-	return this.tgt != "";
+	return this.tgt != '';
 }
 
 
 login(login, passwd) {
 	return new Promise((resolve, reject) => {
 		this.call(
-			"",
+			'',
 			Api.POST,
-			"",
+			'',
 			{
 		        	username: login,
 				password: passwd
@@ -57,7 +57,7 @@ login(login, passwd) {
 			if(status != 201) {reject([response, status, url]);}
 			else {this.tgt = this._parseTgt(response); resolve([response, status, url]); }
 		}).catch( (e) => {
-			if(e instanceof TypeError) {reject([JSON.stringify(e), 523, ""]); }
+			if(e instanceof TypeError) {reject([JSON.stringify(e), 523, '']); }
 			else {
 				if(Array.isArray(e) && e.length ==3) {
 					let a, b, c;
@@ -65,7 +65,7 @@ login(login, passwd) {
 					reject([JSON.stringify(a), JSON.stringify(b), JSON.stringify(c)]); 
 
 				}
-				else {reject(["Erreur réseau", 523, ""]);}
+				else {reject(["Erreur réseau", 523, '']);}
 			}
 			
 		});
@@ -77,7 +77,7 @@ getService(service) {
 		this.call(
 			this.tgt,
 			Api.POST,
-			"",
+			'',
 			{
 		        	service: service
 			},
@@ -86,7 +86,7 @@ getService(service) {
 			if(status != 200) {reject([response, status, url]);}
 			else { resolve([response, status, url]); }
 		}).catch( (e) => {
-			if(e instanceof TypeError) {reject([JSON.stringify(e), 523, ""]); }
+			if(e instanceof TypeError) {reject([JSON.stringify(e), 523, '']); }
 			else {
 				if(Array.isArray(e) && e.length ==3) {
 					let a, b, c;
@@ -94,7 +94,7 @@ getService(service) {
 					reject([JSON.stringify(a), JSON.stringify(b), JSON.stringify(c)]); 
 
 				}
-				else {reject(["Erreur réseau", 523, ""]);}
+				else {reject(["Erreur réseau", 523, '']);}
 			}
 			
 		});

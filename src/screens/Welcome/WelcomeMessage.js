@@ -8,7 +8,7 @@ export default class WelcomeMessageScreen extends React.Component {
 		const logoStyle = {
 			width: 225,
 			height: 150,
-			marginBottom: 20
+			marginBottom: 20,
 		}
 		const titleStyle = styles.get('text.yellow', 'text.h0', 'text.center', 'mb.sm');
 		const subtitleStyle = styles.get('text.gray', 'text.h4', 'text.center', 'mb.xl');

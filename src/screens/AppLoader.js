@@ -15,7 +15,7 @@ export default class AppLoaderScreen extends React.Component {
 	render() {
 		return (
 			<View style={ styles.container.center }>
-				<ActivityIndicator size="large" color={ colors.yellow }/>
+				<ActivityIndicator size='large' color={ colors.yellow }/>
 				<Text style={ styles.get('text.h3', 'text.center', 'my.lg') }>
 					{_('loader')}
 				</Text>
