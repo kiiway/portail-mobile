@@ -9,3 +9,4 @@ I18n.translations = {
 };
 
 export default I18n;
+export const _ = I18n.t.bind(I18n);
