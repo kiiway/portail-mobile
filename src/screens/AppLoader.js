@@ -3,6 +3,7 @@ import { View, Text, ActivityIndicator } from 'react-native';
 import styles from '../styles/';
 import { colors } from '../styles/variables';
 import PortailApi from '../services/Portail';
+import { _ } from '../i18n/i18n';
 
 export default class AppLoaderScreen extends React.Component {
 	componentWillMount() {
@@ -16,7 +17,7 @@ export default class AppLoaderScreen extends React.Component {
 			<View style={ styles.container.center }>
 				<ActivityIndicator size="large" color={ colors.yellow }/>
 				<Text style={ styles.get('text.h3', 'text.center', 'my.lg') }>
-					Chargement de l'application
+					{_('loader')}
 				</Text>
 			</View>
 		);
