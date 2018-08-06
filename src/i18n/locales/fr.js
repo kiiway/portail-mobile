@@ -20,5 +20,10 @@ export default {
             alerts: "Être notifié des résultats des examens", // FIXME c'est pas logique, ils ont pas d'exam
             calendar: "Consulter et synchroniser son agenda scolaire et associatif", // FIXME idem pas d'agenda scolaire
         },
-    }
+    },
+
+    welcome: {
+        title: "Bienvenue !",
+        subtitle: "Découvrons ensemble l'application",
+    },
 }

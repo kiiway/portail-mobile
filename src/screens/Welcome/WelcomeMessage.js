@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Image, Text } from 'react-native';
-import styles from '../../styles'
+import styles from '../../styles';
+import { _ } from '../../i18n/i18n';
 
 export default class WelcomeMessageScreen extends React.Component {
 	render() {
@@ -15,8 +16,8 @@ export default class WelcomeMessageScreen extends React.Component {
 		return (
 			<View style={ styles.container.center }>
 				<Image source={require('../../img/logo_utc.png')} style={ logoStyle } resizeMode={'center'} />
-				<Text style={ titleStyle }>Bienvenue !</Text>
-				<Text style={ subtitleStyle }>Découvrons ensemble l'application</Text>
+				<Text style={ titleStyle }>{_('welcome.title')}</Text>
+				<Text style={ subtitleStyle }>{_('welcome.subtitle')}</Text>
 			</View>
 		);
 	}
