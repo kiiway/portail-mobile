@@ -7,7 +7,7 @@ export class Portail extends Api {
 	static token = {}
 	static user = {}
 
-	static notConnectedException = "Tried to call Portail route but not logged in.";
+	static notConnectedException = 'Tried to call Portail route but not logged in.';
 
 	constructor() {
 		super(process.env.PORTAIL_URL || 'http://192.168.56.1:8000/');
@@ -89,10 +89,10 @@ export class Portail extends Api {
 			this.call(
 				Portail.API_V1 + 'articles',
 				Api.GET,
-				{	"paginate": paginate,
-					"page": page,
-					"order": order,
-					"week": week
+				{	paginate,
+					page,
+					order,
+					week
 				}).then( ( [data, status] ) => {
 					this.articles = data;
 					this.lastArticleUpdate = Date.now();

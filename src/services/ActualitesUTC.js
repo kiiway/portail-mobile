@@ -1,7 +1,7 @@
 /**
  * Télécharger des données depuis le WP des actualités internes de l'UTC
  * Cette classe ne doit PAS être utilisée directement, mais via la classe Articles
- * @serviceCAS "http://actualites.utc.fr/wp-login.php?external=cas&redirect_to=%2Fwp-json%2Fwp%2Fv2%2Fposts"
+ * @serviceCAS 'http://actualites.utc.fr/wp-login.php?external=cas&redirect_to=%2Fwp-json%2Fwp%2Fv2%2Fposts'
  * @author Romain Maliach-Auguste <r.maliach@live.fr>
  *
  * @copyright Copyright (c) 2017, SiMDE-UTC
@@ -15,14 +15,14 @@ export default class ActualitesUTC extends Api {
 	static ACTUS_FEED_LOGIN = 'http://actualites.utc.fr/wp-login.php?external=cas&redirect_to=%2Fwp-json%2Fwp%2Fv2%2Fposts&ticket=';
 
 	static HEADERS = {
-		"Accept" : "application/json",
+		'Accept' : 'application/json',
 	}
 
-	static NO_ARTICLES_LOADED_EXCEPTION = "No articles were loaded!";
+	static NO_ARTICLES_LOADED_EXCEPTION = 'No articles were loaded!';
 
 	constructor(st) {
 		super(ActualitesUTC.ACTUS_FEED_LOGIN);
-		if(!st) {throw "Pas de service ticket!";}
+		if(!st) {throw 'Pas de service ticket!';}
 		this._st = st;
 		this._articlesWereLoaded = false;
 		this._randomArticlesConsumed = {};
@@ -65,16 +65,12 @@ export default class ActualitesUTC extends Api {
 		result.sort(compArtDate);
 		restrainArray(paginate*page, paginate*(page+1));
 		
-		return result;				
+		return result;
 		
 	}
 
 	getRandomArticleId() {
-		
-
 	}
-
-
 
 	//pure helpers
 
@@ -91,12 +87,4 @@ export default class ActualitesUTC extends Api {
 		array.splice(b+1, array.length-b-1);
 		array.splice(0, a);
 	}
-
-    
 }
-
-
-
-
-
-

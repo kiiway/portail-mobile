@@ -14,13 +14,13 @@ export default class ActualitesUTCTestScreen extends React.Component {
 		process.env.PORTAIL_CLIENT_SECRET='E1E5bTVnxSAE5T5K6cnTCCQeHMde1bFMGXNH0a6S';
 	}
 	state = {
-		log: "",
-		login: "romain@maliach.fr",
-		password: ""
+		log: '',
+		login: 'romain@maliach.fr',
+		password: ''
 	}
 	
 	defaultValues = {
-		login: "romain@maliach.fr",
+		login: 'romain@maliach.fr',
 	}	
 
 	log = (data, error = false) => {
@@ -33,19 +33,19 @@ export default class ActualitesUTCTestScreen extends React.Component {
 	}
 
 log_in = (login, password) => {
-	this.log("logging in...");
+	this.log('logging in...');
 	Portail.login(this.state.login, this.state.password).then(() => {
-		this.log(Portail.isConnected() ? "logged in" : "not logged in");
+		this.log(Portail.isConnected() ? 'logged in' : 'not logged in');
 	}).catch( (e) => {console.log(e); this.log(JSON.stringify(e), true); } );
 	
 	
 }
 
 getArticles() {
-	this.log("getting articles...");
-	if(!Portail.isConnected()) {this.log("not connected!"); return;}
+	this.log('getting articles...');
+	if(!Portail.isConnected()) {this.log('not connected!'); return;}
 	
-	Portail.getArticles().then(() => {console.log("Portail.articles:");console.log(Portail.articles);}).catch( ([response, status]) => {this.log(response + '---' + status, true);});
+	Portail.getArticles().then(() => {console.log('Portail.articles:');console.log(Portail.articles);}).catch( ([response, status]) => {this.log(response + '---' + status, true);});
 }
 
 

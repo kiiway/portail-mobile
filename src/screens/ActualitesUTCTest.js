@@ -13,16 +13,16 @@ export default class ActualitesUTCTestScreen extends React.Component {
 		this.cas = new CASAuth();
 	}
 	state = {
-		log: "",
-		login: "rmaliach",
-		password: "",
-		service : "http://actualites.utc.fr/wp-login.php?external=cas&redirect_to=%2Fwp-json%2Fwp%2Fv2%2Fposts",
-		st : ""
+		log: '',
+		login: 'rmaliach',
+		password: '',
+		service : 'http://actualites.utc.fr/wp-login.php?external=cas&redirect_to=%2Fwp-json%2Fwp%2Fv2%2Fposts',
+		st : ''
 	}
 	
 	defaultValues = {
-		login: "rmaliach",
-		service : "http://actualites.utc.fr/wp-login.php?external=cas&redirect_to=%2Fwp-json%2Fwp%2Fv2%2Fposts",
+		login: 'rmaliach',
+		service : 'http://actualites.utc.fr/wp-login.php?external=cas&redirect_to=%2Fwp-json%2Fwp%2Fv2%2Fposts',
 	}	
 
 	log = (data, error = false) => {
@@ -35,19 +35,19 @@ export default class ActualitesUTCTestScreen extends React.Component {
 	}
 
 log_in = (login, password) => {
-	this.log("logging in...");
+	this.log('logging in...');
 	
 	
 	
 	promise = this.cas.login(login, password);
 	promise.then(([text, status, url]) => {
-				this.log(text +" "+status+" "+url);
-				this.log(this.cas.isConnected() ? "connected" : "not connected");
+				this.log(text +' '+status+' '+url);
+				this.log(this.cas.isConnected() ? 'connected' : 'not connected');
 				
 				
 	}
 	).catch( ([text, status, url]) => {
-		this.log(text + " "+status+" "+url, true);
+		this.log(text + ' '+status+' '+url, true);
 	});
 	
 }
@@ -58,9 +58,9 @@ let service = this.state.service;
 	promise.then(([text, status, url]) => {
 				this.st = text;
 				
-			if(!this.st) {this.log("pas de st!", true); return;}
+			if(!this.st) {this.log('pas de st!', true); return;}
 			this.actus = new ActualitesUTC(this.st);
-			this.log("loading articles");
+			this.log('loading articles');
 			try {	
 				this.actus.loadArticles();
 			} catch (e) {console.log(e);}
@@ -68,7 +68,7 @@ let service = this.state.service;
 				
 	}
 	).catch( ([text, status, url]) => {
-		this.log(text + " "+status, true);
+		this.log(text + ' '+status, true);
 	});
 
 }
