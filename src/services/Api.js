@@ -35,16 +35,24 @@ export default class Api {
         return url + '?' + this.serialize(queries)
     }
 
-    call(request, method, queries, body, headers, validStatus) {
-	return new Promise((resolve, reject) => {
-
-	fetch(this.urlWithQueries(this.baseUrl + request, queries), {
+    call(request, method, queries, body, headers, validStatus, json=false) {
+	var parameters = {
             method: method || Api.GET,
             headers: headers || {},
-            body: JSON.stringify(body)
-        }).then( (response) => {
+        }
+	
+	if (method != 'GET') {parameters.body = JSON.stringify(body);}
+
+	return new Promise((resolve, reject) => {
+
+	fetch(this.urlWithQueries(this.baseUrl + request, queries), parameters).then( (response) => {
 				if ((validStatus || Api.VALID_STATUS).includes(response.status)) {
-					response.text().then( (text) => {resolve([text, response.status]);  } );
+						if(json) {
+							response.json().then( (data) => {resolve([data, response.status]);  } );
+						}
+						else {
+							response.text().then( (text) => {resolve([text, response.status]);  } );
+						}
 				}
 				else {
 					response.text().then( (text) => { reject([text, response.status]); }); 
