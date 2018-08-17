@@ -99,7 +99,11 @@ export default class ConnectionScreen extends React.Component {
 					)
 				}
 				else {
-					return PortailApi.createCasAuthentification(this.state.emailOrLogin, this.state.password).catch(([response, status]) => {
+					return PortailApi.createCasAuthentification(this.state.emailOrLogin, this.state.password).then(() => {
+						return PortailApi.login(this.state.emailOrLogin, this.state.password).then(() => {
+							this.register()
+						})
+					}).catch(([response, status]) => {
 						if (status === 400) {
 							this.badLogin()
 
