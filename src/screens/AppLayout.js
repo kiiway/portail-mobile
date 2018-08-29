@@ -8,6 +8,7 @@ import styles from '../styles/'
 
 import MainLayout from './MainLayout'
 import AssosNavigator from './Assos'
+import MagazineScreen from './Magazine'
 import ProfileScreen from './Profile'
 
 // DEBUG
@@ -43,6 +44,9 @@ export default AppLayout = createDrawerNavigator({
 	},
 	Assos: {
 		screen: AssosNavigator
+	},
+	Magazine: {
+		screen: MagazineScreen
 	},
 	Login: {
 		screen: ProfileScreen
