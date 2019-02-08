@@ -15,7 +15,7 @@ export class PrettyDate {
     shortDate(date, locale = "en-US") {
         switch (locale) {
 			case "fr-FR":
-				return date.getDate() + (date.getDate() == 1 ? "er" : "") + " " + monthNames['fr-FR'][date.getMonth()] + " " + date.getFullYear();
+				return date.getDate() + (date.getDate() == 1 ? "er" : "") + " " + LocaleConfig.locales.fr.monthNames[date.getMonth()] + " " + date.getFullYear();
 				break;
 			case "en-US":
 			default:
