@@ -8,6 +8,7 @@ import styles from '../styles/'
 // import StorageTestScree from './StorageTest'; // DEBUG
 import EventsNavigator from './Events'
 import ArticlesScreen from './Articles'
+import NotificationsScreen from './Notifications'
 
 // Icons
 import Icon from '../components/Icon'
@@ -25,7 +26,7 @@ import HamburgerOff from '../img/icons/navbar/hamburger-off.png'
 // DEBUG
 const show = (text) => <View style={ styles.container.center }><Text style={ styles.text.h0 }>{ text }</Text></View>
 const HomeScreen = () => show('Home')
-const NotificationsScreen = () => show('Notifications')
+//"const NotificationsScreen = () => show('Notifications')
 const HamburgerScreen = () => show('Hamburger')
 
 
