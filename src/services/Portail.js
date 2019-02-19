@@ -37,6 +37,7 @@ export class Portail extends Api {
 		'user-get-assos-members',
 		'user-get-roles-assos-assigned',
 		'user-get-roles-assos-owned',
+		'user-get-notifications',
 	]
 
 	constructor() {
@@ -455,6 +456,15 @@ export class Portail extends Api {
 		return this.callWithoutJSON(
 			Portail.API_V1 + 'user/articles/' + uuid + '/actions/' + key,
 			Api.DELETE,
+		)
+	}
+
+	getUserNotifications() {
+		this._checkConnected();
+
+		return this.call(
+			Portail.API_V1 + 'user/notifications',
+			Api.GET,
 		)
 	}
 
